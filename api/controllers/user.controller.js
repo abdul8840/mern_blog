@@ -39,7 +39,6 @@ export const updateUser = async (req, res, next) => {
       req.params.userId,
       {
         $set: {
-          name: req.body.name,
           username: req.body.username,
           email: req.body.email,
           profilePicture: req.body.profilePicture,
@@ -65,4 +64,15 @@ export const deleteUser = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
+
+export const signout = (req, res, next) => {
+  try {
+    res
+      .clearCookie('access_token')
+      .status(200)
+      .json('User has been signed out');
+  } catch (error) {
+    next(error);
+  }
+};
