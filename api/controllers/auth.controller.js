@@ -4,9 +4,10 @@ import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { name, username, email, password } = req.body;
 
   if (
+    !name ||
     !username ||
     !email ||
     !password ||
@@ -20,6 +21,7 @@ export const signup = async (req, res, next) => {
   const hashedPassword = bcryptjs.hashSync(password, 10);
 
   const newUser = new User({
+    name,
     username,
     email,
     password: hashedPassword,
@@ -89,6 +91,7 @@ export const google = async (req, res, next) => {
         Math.random().toString(36).slice(-8);
       const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
       const newUser = new User({
+        name,
         username:
           name.toLowerCase().split(' ').join('') +
           Math.random().toString(9).slice(-4),
