@@ -38,16 +38,16 @@ export default function FooterCom() {
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title='Follow us' />
+              <Footer.Title title='Nav Links' />
               <Footer.LinkGroup col>
+              <Footer.Link href='/'>Home</Footer.Link>
                 <Footer.Link
-                  href='https://www.github.com/sahandghavidel'
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href='/about'
                 >
-                  Github
+                  About
                 </Footer.Link>
-                <Footer.Link href='#'>Discord</Footer.Link>
+                <Footer.Link href='/projects'>Projects</Footer.Link>
+                
               </Footer.LinkGroup>
             </div>
             <div>
